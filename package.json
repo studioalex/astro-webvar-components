@@ -1,0 +1,35 @@
+{
+  "name": "astro-webvar-components",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.ts",
+    "./Bagde": "./src/Badge.astro",
+    "./Button": "./src/Button.astro",
+    "./Clipboard": "./src/Clipboard.astro",
+    "./Link": "./src/Link.astro",
+    "./NavLink": "./src/NavigationLink.astro"
+  },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "astro-component",
+    "astro",
+    "components"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "astro": "^4.5.16"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0",
+    "tailwindcss": "^3.4.3"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "typescript": "^5.4.4"
+  }
+}

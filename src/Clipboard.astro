@@ -1,0 +1,53 @@
+---
+/*
+This component is called Clipboard and it is written in TypeScript. It is designed to be used
+as a custom HTML element (<clipboard></clipboard>) in your web application.
+
+When the Clipboard Function element is connected to the DOM (i.e., inserted into the page),
+the connectedCallback() method is automatically called. Inside this method, the component
+performs the following actions:
+
+1. It looks for a <button> element within the Clipboard element using the querySelector() method.
+2. If a <button> element is found, it retrieves the value of the data-copy attribute using the getAttribute() method.
+	This attribute is expected to contain the text that should be copied to the clipboard.
+3. If the data-copy attribute exists and the <button> element is present, an event listener is added to the button's click event.
+4. When the button is clicked, the component performs the following actions:
+    - It stores the original content of the button in a variable called originalContent.
+    - It uses the navigator.clipboard.writeText() method to write the value of the data-copy attribute to the clipboard.
+    - It changes the innerHTML of the button to display the text "Copied!".
+    - After a delay of 1000 milliseconds (1 second), it restores the original content of the button by
+	  setting the innerHTML back to originalContent.
+
+In summary, this component allows you to easily create a button that copies a specified text to the clipboard when clicked.
+It provides visual feedback to the user by temporarily changing the button's text to "Copied!"
+before reverting back to its original content.
+*/
+---
+
+<script>
+	class Clipboard extends HTMLElement {
+		constructor() {
+			super();
+		}
+
+		connectedCallback() {
+			const button = this.querySelector('button');
+			const copyValue = button?.getAttribute('data-copy');
+			if (copyValue && button) {
+				button?.addEventListener('click', () => {
+					const originalContent = button.innerHTML;
+					navigator.clipboard.writeText(copyValue);
+					button.innerHTML = 'Copied!';
+					setTimeout(() => {
+						button.innerHTML = originalContent;
+					}, 1000);
+				});
+			}
+		}
+	}
+	customElements.define('clipboard', Clipboard);
+</script>
+
+<clipboard>
+	<slot />
+</clipboard>
