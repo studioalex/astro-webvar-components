@@ -1,0 +1,59 @@
+{
+  "name": "astro-webvar-components",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./Bagde": "./src/Badge.astro",
+    "./Button": "./src/Button.astro",
+    "./Clipboard": "./src/Clipboard.astro",
+    "./Link": "./src/Link.astro",
+    "./NavLink": "./src/NavigationLink.astro"
+  },
+  "files": [
+    "src",
+    "typings",
+    "index.ts",
+    "index.d.ts"
+  ],
+  "author": {
+    "name": "Alexander Sedeke",
+    "email": "develop@alexandr.studio",
+    "url": "https://alexandr.studio/"
+  },
+  "keywords": [
+    "astro-component",
+    "astro",
+    "components",
+    "tailwind",
+    "tailwindcss",
+    "webvar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studioalex/astro-webvar-components.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/studioalex/astro-webvar-components/issues"
+  },
+  "homepage": "https://github.com/studioalex/astro-webvar-components#readme",
+  "scripts": {},
+  "devDependencies": {
+    "astro": "^4.5.16"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.4"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.5.10",
+    "typescript": "^5.4.4"
+  }
+}

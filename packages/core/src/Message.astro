@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import error from './assets/error.svg';
+import info from './assets/info.svg';
+import success from './assets/success.svg';
+
+export type MessageType = 'error' | 'success' | 'info';
+
+interface Props {
+	message: string;
+	details?: string;
+	height?: number;
+	width?: number;
+	type?: MessageType;
+}
+
+const { message, details, height = 300, width = 300, type = 'info' } = Astro.props as Props;
+
+const imageElement = type === 'error' ? error : type === 'success' ? success : info;
+---
+
+<div class="max-w-7xl mx-auto px-6 py-2" role="alert">
+	<Image src={imageElement} {width} {height} alt={type} class="mx-auto" />
+	{
+		message && (
+			<h2
+				class:list={[
+					'text-3xl lg:text-4xl font-bold text-center mb-8',
+					`text-webvar-${type}`
+				]}>
+				{message}
+			</h2>
+		)
+	}
+	{details && <p class="text-lg lg:text-2xl text-center">{details}</p>}
+	<slot />
+</div>

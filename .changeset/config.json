@@ -1,0 +1,21 @@
+{
+    "$schema": "https://unpkg.com/@changesets/config@1.6.3/schema.json",
+    "changelog": [
+        "@changesets/changelog-github",
+        {
+            "repo": "studioalex/astro-webvar-components"
+        }
+    ],
+    "commit": false,
+    "linked": [],
+    "access": "public",
+    "baseBranch": "main",
+    "updateInternalDependencies": "patch",
+    "ignore": [
+        "docs",
+        "service",
+        "demo",
+        "www",
+        "public"
+    ]
+}

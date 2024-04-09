@@ -1,0 +1,187 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+	endpoint: string;
+}
+
+const { endpoint } = Astro.props as Props;
+---
+
+<script>
+	class ConfirmDelete extends HTMLElement {
+		/**
+		 * Represents the elements in the RecordDelete component.
+		 **/
+		elements: {
+			wrapper: HTMLDivElement | null;
+			message: HTMLDivElement | null;
+			delete: HTMLButtonElement | null;
+			confirm: HTMLButtonElement | null;
+			cancel: HTMLButtonElement | null;
+		} = {
+			wrapper: null,
+			message: null,
+			delete: null,
+			confirm: null,
+			cancel: null
+		};
+
+		endpoint: string | null = null;
+		redirect: string | null = null;
+		key: string | null = null;
+		value: string | null = null;
+
+		static get observedAttributes() {
+			return ['endpoint', 'redirect', 'key', 'value'];
+		}
+
+		constructor() {
+			super();
+			this.initializeElements();
+			this.attachEventListeners();
+		}
+
+		initializeElements() {
+			const selector = {
+				wrapper: '[data-delete-wrapper]',
+				message: '[data-delete-message]',
+				delete: '[data-delete-button]',
+				confirm: '[data-delete-confirm-button]',
+				cancel: '[data-delete-cancel-button]'
+			};
+
+			Object.keys(selector).forEach((key: string) => {
+				// @ts-ignore
+				this.elements[key as keyof typeof selector] = this.querySelector(
+					selector[key as keyof typeof selector]
+				);
+			});
+		}
+
+		connectedCallback() {
+			this.endpoint = this.getAttribute('endpoint');
+			this.redirect = this.getAttribute('redirect');
+			this.key = this.getAttribute('key');
+			this.value = this.getAttribute('value');
+		}
+
+		attributeChangedCallback(name: string, _oldValue: string | null, newValue: string | null) {
+			const attributeMap: { [key: string]: string } = {
+				endpoint: 'endpoint',
+				redirect: 'redirect',
+				key: 'key',
+				value: 'value'
+			};
+
+			const attributeName = attributeMap[name];
+			if (attributeName) {
+				// @ts-ignore
+				this[attributeName] = newValue;
+			}
+		}
+
+		attachEventListeners() {
+			if (this.elements.delete) {
+				this.elements.delete.addEventListener('click', (event) =>
+					this.toggleVisibility(event)
+				);
+			}
+
+			if (this.elements.cancel) {
+				this.elements.cancel.addEventListener('click', (event) =>
+					this.toggleVisibility(event)
+				);
+			}
+
+			if (this.elements.confirm) {
+				this.elements.confirm.addEventListener('click', (event) =>
+					this.deleteAction(event)
+				);
+			}
+		}
+
+		toggleVisibility(event: Event) {
+			event.preventDefault();
+
+			const visible = this.elements.wrapper?.classList.contains('absolute');
+
+			const wrapperClasses = ['absolute', 'left-0', 'w-full', 'rounded-xl'];
+			wrapperClasses.forEach((className) => {
+				this.elements.wrapper?.classList.toggle(className);
+			});
+
+			if (visible) {
+				this.elements.message?.classList.replace('flex', 'hidden');
+				this.elements.confirm?.classList.replace('flex', 'hidden');
+				this.elements.cancel?.classList.replace('flex', 'hidden');
+				this.elements.wrapper?.classList.replace('flex', 'hidden');
+				if (this.elements.delete) {
+					this.elements.delete.style.display = '';
+				}
+			}
+
+			if (!visible) {
+				this.elements.confirm?.classList.replace('hidden', 'flex');
+				this.elements.cancel?.classList.replace('hidden', 'flex');
+				this.elements.wrapper?.classList.replace('hidden', 'flex');
+				if (this.elements.delete) {
+					this.elements.delete.style.display = 'none';
+				}
+			}
+		}
+
+		deleteAction(event: Event) {
+			event.preventDefault();
+
+			if (!this.endpoint) {
+				this.elements.message &&
+					(this.elements.message.innerHTML =
+						'<span class="text-red-500">Required properties are missing!</span>');
+				return;
+			}
+
+			try {
+				window.location.href = this.endpoint;
+				this.elements.message &&
+					(this.elements.message.innerHTML =
+						'<span class="text-red-500">Deleting . . . </span>');
+				this.elements.confirm?.classList.replace('flex', 'hidden');
+				this.elements.message?.classList.replace('hidden', 'flex');
+			} catch (error) {
+				this.elements.message &&
+					(this.elements.message.innerHTML =
+						'<span class="text-red-500">Error on redirection</span>');
+			}
+		}
+	}
+
+	customElements.define('confirm-delete', ConfirmDelete);
+</script>
+
+<confirm-delete {endpoint} class="bg-white">
+	<div
+		data-delete-wrapper
+		class="top-0 flex-row justify-between hidden gap-4 transition-all bg-white">
+		<p id="wvar-delete-message" class="flex-row items-center hidden text-lg flex-nowrap"></p>
+
+		<Button
+			data-delete-confirm-button
+			type="button"
+			variant="danger"
+			aria-label="Delete article">
+			Confirm to delete
+		</Button>
+
+		<Button
+			data-delete-cancel-button
+			type="button"
+			variant="dark-outline"
+			aria-label="Delete article">
+			Cancel
+		</Button>
+	</div>
+	<Button data-delete-button type="button" variant="danger" aria-label="Delete article">
+		Delete
+	</Button>
+</confirm-delete>

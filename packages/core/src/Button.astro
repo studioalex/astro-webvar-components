@@ -1,0 +1,93 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'button'> {
+	variant?:
+		| 'primary'
+		| 'secondary'
+		| 'success'
+		| 'danger'
+		| 'warning'
+		| 'info'
+		| 'light'
+		| 'dark'
+		| 'primary-outline'
+		| 'secondary-outline'
+		| 'success-outline'
+		| 'danger-outline'
+		| 'warning-outline'
+		| 'info-outline'
+		| 'light-outline'
+		| 'dark-outline';
+	rounded?: 'none' | 'full' | 'sm' | 'md' | 'xl';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	class?: string;
+}
+
+const {
+	variant = 'secondary',
+	rounded = 'full',
+	class: className,
+	size = 'md',
+	...rest
+} = Astro.props as Props;
+
+const variantClasses = {
+	primary: 'bg-blue-500 text-white border-blue-500 hover:ring-blue-200 focus:ring-blue-400',
+	secondary: 'bg-gray-500 text-white border-gray-500 hover:ring-gray-300 focus:ring-gray-500',
+	success: 'bg-green-500 text-white border-green-500 hover:ring-green-200 focus:ring-green-500',
+	danger: 'bg-red-500 text-white border-red-500 hover:ring-red-200 focus:ring-red-500',
+	warning: 'bg-yellow-300 text-black border-yellow-300 hover:ring-yellow-100 focus:ring-yellow-400',
+	info: 'bg-sky-200 text-black border-sky-200 hover:ring-sky-300 focus:ring-sky-400',
+	light: 'bg-slate-200 text-black border-slate-200 hover:ring-slate-300 focus:ring-slate-400',
+	dark: 'bg-black text-white border-black hover:ring-gray-300 focus:ring-black',
+	'primary-outline':
+		'bg-transparent text-blue-500 border-blue-500 hover:ring-blue-200 focus:ring-blue-400',
+	'secondary-outline':
+		'bg-transparent text-gray-500 border-gray-500 hover:ring-gray-300 focus:ring-gray-500',
+	'success-outline':
+		'bg-transparent text-green-500 border-green-500 hover:ring-green-200 focus:ring-green-500',
+	'danger-outline':
+		'bg-transparent text-red-500 border-red-500 hover:ring-red-200 focus:ring-red-500',
+	'warning-outline':
+		'bg-transparent text-yellow-500 border-yellow-300 hover:ring-yellow-100 focus:ring-yellow-400',
+	'info-outline':
+		'bg-transparent text-sky-500 border-sky-200 hover:ring-sky-300 focus:ring-sky-400',
+	'light-outline':
+		'bg-transparent text-slate-500 border-slate-300 hover:ring-slate-300 focus:ring-slate-400',
+	'dark-outline':
+		'bg-transparent text-black border-black hover:ring-gray-300 focus:ring-gray-400'
+};
+
+const roundedClasses = {
+	none: 'rounded-none',
+	full: 'rounded-full',
+	sm: 'rounded-md',
+	md: 'rounded-xl',
+	xl: 'rounded-2xl'
+};
+
+const sizeClasses = {
+	xs: 'text-xs px-3 py-2',
+	sm: 'text-sm px-4 py-2',
+	md: 'text-md px-6 py-3',
+	lg: 'text-lg px-8 py-3',
+	xl: 'text-xl px-10 py-4'
+};
+---
+
+<button
+	class:list={[
+		'flex flex-row items-center gap-2 overflow-hidden cursor-pointer font-semibold outline-none border-2',
+		variantClasses[variant],
+		roundedClasses[rounded],
+		sizeClasses[size],
+		'disabled:opacity-50 disabled:cursor-not-allowed',
+		'transition-colors transition-shadow hover:duration-300 ease-in-out',
+		'focus:outline-none focus:ring-2 focus:ring-offset-[2px]',
+		'hover:ring-[6px]',
+		className
+	]}
+	{...rest}>
+	<slot />
+</button>

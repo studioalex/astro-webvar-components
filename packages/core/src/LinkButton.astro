@@ -1,7 +1,7 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-export interface Props extends HTMLAttributes<'button'> {
+export interface Props extends HTMLAttributes<'a'> {
 	variant?:
 		| 'primary'
 		| 'secondary'
@@ -60,7 +60,7 @@ const variantClasses = {
 };
 
 const roundedClasses = {
-	none: '',
+	none: 'rounded-none',
 	full: 'rounded-full',
 	sm: 'rounded-md',
 	md: 'rounded-xl',
@@ -68,9 +68,9 @@ const roundedClasses = {
 };
 
 const sizeClasses = {
-	xs: 'text-xs px-3 py-[6px]',
+	xs: 'text-xs px-3 py-2',
 	sm: 'text-sm px-4 py-2',
-	md: 'text-md px-6 py-[10px]',
+	md: 'text-md px-6 py-3',
 	lg: 'text-lg px-8 py-3',
 	xl: 'text-xl px-10 py-4'
 };
@@ -79,13 +79,13 @@ const sizeClasses = {
 <a
 	class:list={[
 		'flex flex-row items-center gap-2 overflow-hidden cursor-pointer font-semibold outline-none no-underline border-2',
+		variantClasses[variant],
+		roundedClasses[rounded],
+		sizeClasses[size],
 		'disabled:opacity-50 disabled:cursor-not-allowed',
 		'transition-colors transition-shadow hover:duration-[400ms] ease-in-out',
 		'focus:outline-none focus:ring-[2px] focus:ring-offset-[3px]',
 		'hover:ring-[6px]',
-		variantClasses[variant],
-		roundedClasses[rounded],
-		sizeClasses[size],
 		className
 	]}
 	{...rest}>

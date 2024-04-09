@@ -1,35 +1,30 @@
 {
-  "name": "astro-webvar-components",
-  "version": "0.0.1",
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
   "type": "module",
-  "main": "index.js",
-  "exports": {
-    ".": "./index.ts",
-    "./Bagde": "./src/Badge.astro",
-    "./Button": "./src/Button.astro",
-    "./Clipboard": "./src/Clipboard.astro",
-    "./Link": "./src/Link.astro",
-    "./NavLink": "./src/NavigationLink.astro"
+  "scripts": {
+    "build": "pnpm --filter astro-icon --filter www run build",
+    "dev": "pnpm -r run dev",
+    "lint": "prettier \"**/*.{js,ts,md,json}\"",
+    "version": "changeset version && pnpm install --no-frozen-lockfile --lockfile-only"
   },
-  "files": [
-    "src",
-    "index.ts"
-  ],
-  "keywords": [
-    "astro-component",
-    "astro",
-    "components"
-  ],
-  "scripts": {},
-  "devDependencies": {
-    "astro": "^4.5.16"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/studio-alex/astro-web/var-components.git"
   },
-  "peerDependencies": {
-    "astro": "^4.0.0",
-    "tailwindcss": "^3.4.3"
+  "keywords": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/astro-web/var-components/issues"
   },
+  "homepage": "https://github.com/astro-web/var-components#readme",
+  "packageManager": "pnpm@8.15.6",
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "typescript": "^5.4.4"
+    "@changesets/changelog-github": "^0.4.2",
+    "@changesets/cli": "^2.18.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1"
   }
 }
