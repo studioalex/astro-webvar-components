@@ -67,6 +67,3 @@ This example creates a custom-styled button using Tailwind CSS classes.
 ### Conclusion
 
 Webvar Components make it easy to add beautiful, responsive, and customizable components to your AstroJS projects. Whether you're building a static site, a blog, or a complex web application, Webvar Components can help you get started quickly and maintain a consistent design across your project.
-
-
-[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
