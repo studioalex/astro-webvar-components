@@ -1,0 +1,53 @@
+---
+title: Link Button
+description: LinkButton Component is a versatile and customizable solution for creating links that appear as buttons.
+lastUpdated: 2024-04-11
+---
+import { LinkButton } from 'astro-webvar-components';
+
+The LinkButton Component is a versatile and customizable solution for creating links that appear as buttons,
+ensuring both semantic correctness and harmonious design within your web projects.
+Built with Astro and Tailwind CSS, it's designed to be lightweight and easy to integrate, making it an ideal
+choice for projects where performance and flexibility are paramount.
+
+## Features
+
+- **Button-like Appearance**: Despite being an anchor (\<a\>) element, the LinkButton Component is styled to look like a button, providing a consistent look and feel across your application.
+- **Variants**: The component supports a wide range of color variants, including primary, secondary, success, danger, warning, info, light, and dark. Each variant comes in two styles: solid and outline, offering flexibility in design.
+- **Rounded Corners**: The LinkButton allows for customization of the button's rounded corners, with options ranging from none to fully rounded, ensuring it fits seamlessly into any design aesthetic.
+- **Sizes**: Available in various sizes, from extra small (xs) to extra large (xl), the LinkButton can be tailored to match the context in which it's used.
+- **Custom Classes**: Developers can extend the LinkButton's functionality and appearance by adding custom CSS classes through the class property.
+
+## Usage
+
+To use the LinkButton Component, include it in your Astro JS Pages and customize it using the available properties. Here's a basic example:
+
+<div class="mt-20 mb-8">
+    <LinkButton href="/components/linkbutton" variant="primary" size="lg" rounded="full" style="color: white;">Click Me</LinkButton>
+</div>
+
+## Props
+
+| Property          | Type     | Default     | Description                                                                                      |
+|-------------------|----------|-------------|--------------------------------------------------------------------------------------------------|
+| Variants          | string   | 'secondary' | Determines the color variant of the link button. Options include:                                |
+|                   |          |             | `primary` / `primary-outline`                                                                    |
+|                   |          |             | `secondary` / `secondary-outline`                                                                |
+|                   |          |             | `success` / `success-outline`                                                                    |
+|                   |          |             | `danger` / `danger-outline`                                                                      |
+|                   |          |             | `warning` / `warning-outline`                                                                    |
+|                   |          |             | `info` / `info-outline`                                                                          |
+|                   |          |             | `light` / `light-outline`                                                                        |
+|                   |          |             | `dark` / `dark-outline`                                                                          |
+| Rounded Corners   | string   | 'full'      | Customizes the rounded corners of the Link Button. Options include:                              |
+|                   |          |             | `none`, `full`, `sm`, `md`, `xl`                                                                 |
+| Sizes             | string   | 'md'        | Sets the size of the Link Button. Options include:                                               |
+|                   |          |             | `xs`, `sm`, `md`, `lg`, `xl`                                                                     |
+| Additional HTML Anchor Properties | - | - | All properties of a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor</a> element are also accepted by this component. This includes attributes such as `href`, `target`, `rel`, ... |
+
+
+## Examples
+
+For more detailed examples and variations of the **LinkButton** component, please refer to the Button component documentation at 
+[Button component](/components/button), as the examples are identical. This approach ensures consistency and reduces redundancy
+in documentation.

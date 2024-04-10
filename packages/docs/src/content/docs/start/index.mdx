@@ -1,0 +1,73 @@
+---
+title: Getting Started
+description: Webvar Componets is a lightway and easy to use components library for AstroJS.
+lastUpdated: 2024-04-11
+---
+import { Aside, Code, Tabs, TabItem } from '@astrojs/starlight/components';
+
+Webvar Componets is a lightway and easy to use components library for AstroJS.
+It do not use any framework like React, Vue or Svelte, it is just a simple and 
+easy to use components library and require only Tailwind CSS.
+
+## Quick Start
+
+### Adding it to your Astro project
+
+<Tabs>
+  <TabItem label="npm">
+    <Code code="npm install astro-webvar-components" lang="bash" />
+  </TabItem>
+  <TabItem label="pnpm">
+    <Code code="pnpm install astro-webvar-components" lang="bash"  />
+  </TabItem>
+  <TabItem label="yarn">
+    <Code code="yarn install astro-webvar-components" lang="bash"  />
+  </TabItem>
+</Tabs>
+
+### Start using the components
+
+After installing the `astro-webvar-components` package, you can start using the components 
+in your AstroJS project. Here's a basic example of how to use a component from the library:
+
+```astro
+import { Button } from 'astro-webvar-components';
+
+<Button variant="primary" size="lg">Click Me</Button>
+```
+
+This example imports and uses the `Button` component from the `astro-webvar-components` package.
+You can replace `Button` with any other component available in the library.
+
+### Customizing Components
+
+Webvar Components are designed to be highly customizable. You can pass props to components 
+to customize their appearance and behavior. For example, to customize a `Button` component:
+
+
+```astro
+import { Button } from 'astro-webvar-components';
+
+<Button variant="danger" size="sm" class="mr-2">Delete</Button>
+```
+
+This example creates a small, danger-themed button with a margin to the right.
+
+### Using Tailwind CSS
+
+Since Webvar Components are styled with Tailwind CSS, you can use any Tailwind utility classes
+to further customize the appearance of the components. For example:
+
+```astro
+import { Button } from 'astro-webvar-components';
+
+<Button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> Custom Button </Button>
+```
+
+This example creates a custom-styled button using Tailwind CSS classes.
+
+### Conclusion
+
+Webvar Components make it easy to add beautiful, responsive, and customizable components to your AstroJS projects. 
+Whether you're building a static site, a blog, or a complex web application, Webvar Components can help you get 
+started quickly and maintain a consistent design across your project.

@@ -9,41 +9,37 @@ export interface Props {
 		| 'info'
 		| 'light'
 		| 'dark';
-	size?: 'xs' | 'sm' | 'base' | 'lg' | '2lg' | '3xl';
-	rounded?: 'base' | 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'full';
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	rounded?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 }
 
-const { variant = 'secondary', rounded = 'base', size = 'base' } = Astro.props as Props;
+const { variant = 'secondary', rounded = 'md', size = 'md' } = Astro.props as Props;
 
 const variantClasses = {
 	primary: 'bg-blue-500 text-white',
 	secondary: 'bg-gray-500 text-white',
 	success: 'bg-green-500 text-white',
 	danger: 'bg-red-500 text-white',
-	warning: 'bg-orange-500 text-black',
+	warning: 'bg-yellow-300 text-black',
 	info: 'bg-sky-200 text-black',
-	light: 'bg-gray-200 text-black',
-	dark: 'bg-stone-800 text-white'
+	light: 'bg-slate-200 text-black',
+	dark: 'bg-black text-white'
 };
 
 const sizeClasses = {
 	xs: 'text-xs',
 	sm: 'text-sm',
-	base: 'text-base',
+	md: 'text-md',
 	lg: 'text-lg',
-	'2lg': 'text-2xl',
-	'3xl': 'text-3xl'
+	xl: 'text-xl'
 };
 
 const roundedClasses = {
-	base: 'rounded',
 	none: 'rounded-none',
 	sm: 'rounded-sm',
 	md: 'rounded-md',
 	lg: 'rounded-lg',
 	xl: 'rounded-xl',
-	'2xl': 'rounded-2xl',
-	'3xl': 'rounded-3xl',
 	full: 'rounded-full'
 };
 ---

@@ -1,0 +1,52 @@
+---
+title: Navigation Link
+description: Navigation Link Component is a customizable and accessible solution designed specifically for internal website navigation.
+lastUpdated: 2024-04-11
+---
+import { NavLink } from 'astro-webvar-components';
+
+The Navigation Link Component is a customizable and accessible solution designed 
+specifically for internal website navigation, such as menus. It leverages the power 
+of Tailwind CSS for styling and ensures semantic correctness by using the `<a>` tag. 
+This component is designed to enhance the user experience by providing visual 
+feedback on the current page and improving accessibility.
+
+## Features
+
+- **Semantic Correctness**: The component uses the `<a>` tag, ensuring semantic correctness and accessibility.
+- **Visual Feedback**: It applies different styles based on whether the link points to the current page, providing visual feedback to users.
+- **Accessibility**: The component uses **aria-current** and **aria-label** attributes to improve accessibility, making it easier for screen readers to understand the link's purpose and state.
+
+## Usage
+
+To use the Navigation Link Component for internal website navigation, include it in your 
+Astro JS Pages and provide the href attribute. Here's a basic example:
+
+```astro
+<NavLink href="/about">About Us</NavLink>
+```
+
+This example creates a navigation link that points to the "About Us" page, suitable for use in a website's menu.
+
+## Props
+
+| Property          | Type     | Description                                                                                      |
+|-------------------|----------|--------------------------------------------------------------------------------------------------|
+| href              | string   | The URL that the link points to. This is a required prop.                                        |
+| class             | string   | Optional custom CSS classes that can be added to the link for further styling.                   |
+| Additional HTML Anchor Properties | - | All properties of a standard <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a" target="_blank">HTML anchor</a> element are also accepted by this component. This includes attributes such as `target`, `rel`, ... |
+
+## Example
+
+<div class="no-margin mt-20 mb-8 flex flex-row gap-8">
+    <NavLink href="/about" class="text-lg font-bold">About Us</NavLink>
+    <NavLink href="/contact" class="text-lg font-bold">Contact</NavLink>
+</div>
+
+```astro
+<NavLink href="/about" class="text-lg font-bold">About Us</NavLink>
+<NavLink href="/contact" class="text-lg font-bold">Contact</NavLink>
+```
+
+This example creates a bold, large navigation link that points to the "Contact" page, with additional custom styling applied 
+through the `class` prop. This is ideal for use in a website's menu.

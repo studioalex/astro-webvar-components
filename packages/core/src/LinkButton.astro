@@ -33,30 +33,30 @@ const {
 } = Astro.props as Props;
 
 const variantClasses = {
-	primary: 'bg-blue-500 text-white border-blue-500 hover:ring-orange-200 focus:ring-blue-400',
-	secondary: 'bg-gray-500 text-white border-gray-500 hover:ring-orange-200 focus:ring-gray-500',
-	success: 'bg-green-500 text-white border-green-500 hover:ring-orange-200 focus:ring-green-500',
-	danger: 'bg-red-500 text-white border-red-500 hover:ring-orange-200 focus:ring-red-500',
-	warning: 'bg-yellow-300 text-black border-yellow-300 hover:ring-gray-200 focus:ring-yellow-400',
-	info: 'bg-sky-200 text-black border-sky-200 hover:ring-orange-200 focus:ring-sky-400',
-	light: 'bg-slate-200 text-black border-slate-200 hover:ring-orange-200 focus:ring-slate-400',
-	dark: 'bg-black text-white border-black hover:ring-orange-200 focus:ring-black',
+	primary: 'bg-blue-500 text-white border-blue-500 hover:ring-blue-200 focus:ring-blue-400',
+	secondary: 'bg-gray-500 text-white border-gray-500 hover:ring-gray-300 focus:ring-gray-500',
+	success: 'bg-green-500 text-white border-green-500 hover:ring-green-200 focus:ring-green-500',
+	danger: 'bg-red-500 text-white border-red-500 hover:ring-red-200 focus:ring-red-500',
+	warning: 'bg-yellow-300 text-black border-yellow-300 hover:ring-yellow-100 focus:ring-yellow-400',
+	info: 'bg-sky-200 text-black border-sky-200 hover:ring-sky-300 focus:ring-sky-400',
+	light: 'bg-slate-200 text-black border-slate-200 hover:ring-slate-300 focus:ring-slate-400',
+	dark: 'bg-black text-white border-black hover:ring-gray-300 focus:ring-black',
 	'primary-outline':
-		'bg-transparent text-blue-500 border-blue-500 hover:ring-orange-200 focus:ring-blue-400',
+		'bg-transparent text-blue-500 border-blue-500 hover:ring-blue-200 focus:ring-blue-400',
 	'secondary-outline':
-		'bg-transparent text-gray-500 border-gray-500 hover:ring-orange-200 focus:ring-gray-500',
+		'bg-transparent text-gray-500 border-gray-500 hover:ring-gray-300 focus:ring-gray-500',
 	'success-outline':
-		'bg-transparent text-green-500 border-green-500 hover:ring-orange-200 focus:ring-green-500',
+		'bg-transparent text-green-500 border-green-500 hover:ring-green-200 focus:ring-green-500',
 	'danger-outline':
-		'bg-transparent text-red-500 border-red-500 hover:ring-orange-200 focus:ring-red-500',
+		'bg-transparent text-red-500 border-red-500 hover:ring-red-200 focus:ring-red-500',
 	'warning-outline':
-		'bg-transparent text-yellow-500 border-yellow-300 hover:ring-gray-200 focus:ring-yellow-400',
+		'bg-transparent text-yellow-500 border-yellow-300 hover:ring-yellow-100 focus:ring-yellow-400',
 	'info-outline':
-		'bg-transparent text-sky-500 border-sky-200 hover:ring-orange-200 focus:ring-sky-400',
+		'bg-transparent text-sky-500 border-sky-200 hover:ring-sky-300 focus:ring-sky-400',
 	'light-outline':
-		'bg-transparent text-slate-500 border-slate-300 hover:ring-orange-200 focus:ring-slate-400',
+		'bg-transparent text-slate-500 border-slate-300 hover:ring-slate-300 focus:ring-slate-400',
 	'dark-outline':
-		'bg-transparent text-black border-black hover:ring-orange-200 focus:ring-gray-400'
+		'bg-transparent text-black border-black hover:ring-gray-300 focus:ring-gray-400'
 };
 
 const roundedClasses = {
@@ -78,7 +78,7 @@ const sizeClasses = {
 
 <a
 	class:list={[
-		'flex flex-row items-center gap-2 overflow-hidden cursor-pointer font-semibold outline-none no-underline border-2',
+		'inline-flex flex-row items-center gap-2 overflow-hidden cursor-pointer font-semibold outline-none no-underline border-2',
 		variantClasses[variant],
 		roundedClasses[rounded],
 		sizeClasses[size],

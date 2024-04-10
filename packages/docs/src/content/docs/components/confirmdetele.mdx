@@ -1,0 +1,67 @@
+---
+title: Confirm Delete
+description: A component is a customizable and secure solution for implementing delete actions within your web applications.
+lastUpdated: 2024-04-11
+---
+import { ConfirmDelete, Button, LinkButton } from 'astro-webvar-components';
+
+The `ConfirmDelete` component is a customizable and secure solution for implementing
+delete actions within your web applications. Designed specifically for use in a horizontal 
+button bar, this component ensures that users must intentionally confirm a delete 
+action by moving their mouse to the left side, thereby reducing the risk of accidental deletions.
+
+## Features
+
+- **Secure Confirmation**: The component requires users to confirm their intention to delete by 
+  interacting with a separate confirmation button, enhancing the security of delete actions.
+- **Accessibility**: The component is designed with accessibility in mind, using ARIA attributes 
+  to improve screen reader support.
+- **Customizable**: The component supports customization through the `endpoint` prop, allowing 
+  developers to specify the URL for the delete action.
+
+## Usage
+
+To use the `ConfirmDelete` component, include it in your Astro JS Pages and provide the `endpoint` attribute. Here's a basic example:
+
+```astro
+<ConfirmDelete endpoint="/blog/delete/slug" />
+```
+This example creates a delete button that, when clicked, reveals a confirmation bar with a cancel and
+confirm button. The `endpoint` prop specifies the URL for the delete action.
+
+## Properties
+
+| Property  | Type     | Description                                                                |
+|-----------|----------|----------------------------------------------------------------------------|
+| endpoint  | string   | The URL that the delete action will navigate to. This is a required prop.  |
+
+## Example
+
+<div class="no-margin relative flex flex-row items-center justify-between gap-8 my-8 flex-nowrap">
+    <div class="flex flex-row items-center gap-4 flex-nowrap">
+        <Button
+            type="submit"
+            class="justify-center min-w-44"
+            variant="dark"
+            aria-label="Save article">
+            Save
+        </Button>
+        <LinkButton
+            href="/components/confirmdetele"
+            variant="dark-outline"
+            class="justify-center min-w-44"
+            aria-label="Cancel article editing"
+            style="color: black;">
+            Cancel
+        </LinkButton>
+    </div>
+    <ConfirmDelete endpoint="/components/confirmdetele" />
+</div>
+
+```astro
+<ConfirmDelete endpoint="/delete-article/123" />
+```
+
+This example creates a delete button for an article with an ID of 123. When clicked, it reveals a 
+confirmation bar with a cancel and confirm button. The endpoint prop specifies the URL for the 
+delete action, including the article ID.

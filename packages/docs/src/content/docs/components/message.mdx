@@ -1,0 +1,77 @@
+---
+title: Message
+description: Message Component is a versatile and user-friendly solution for displaying informative messages within your web applications.
+lastUpdated: 2024-04-11
+---
+
+import { Message, Button } from 'astro-webvar-components';
+
+The Message Component is a versatile and user-friendly solution for displaying
+informative messages within your web applications. It's designed to provide clear
+and concise feedback to users, whether it's to indicate success, highlight an error,
+or share informational content. Built with Astro and leveraging SVG images for
+visual representation, it ensures a consistent and visually appealing user experience.
+
+## Features
+
+- **Customizable Types**: The component supports three types of messages: error, success,
+  and info. Each type is represented by a distinct SVG image, ensuring that the message's
+  intent is immediately clear to the user.
+- **Textual Content**: The component allows for the inclusion of a main message and optional
+  details text. This structure provides a clear hierarchy of information, making it easy for
+  users to understand the message's content and context.
+- **Dimensions**: The component supports customization of the image's dimensions, allowing
+  developers to adjust the size of the message icon to fit the design requirements of their application.
+- **Accessibility**: The component is designed with accessibility in mind, using the `role="alert"`
+  attribute to ensure that screen readers correctly interpret the message's content and type.
+
+## Usage
+
+To use the Message Component, include it in your Astro JS Pages and provide the necessary props. Here's a basic example:
+
+<Message message="Success!" type="success" details="Your operation was completed successfully." />
+
+```astro
+<Message message="Success!" type="success" details="Your operation was completed successfully." />
+```
+
+This example creates a success message with the text "Success!" and an optional details text.
+
+## Props
+| Prop     | Type     | Default | Description                                                                                                     |
+|----------|----------|---------|-----------------------------------------------------------------------------------------------------------------|
+| message  | string   |         | The main text of the message. This is the primary piece of information that the user will see.                  |
+| details  | string   |         | Additional text that provides more context or details about the message. This is optional and can be used to provide further information or guidance to the user. |
+| height   | number   | 300     | The height of the SVG image representing the message type (error, success, info). This allows developers to adjust the size of the image to fit the design requirements of their application. |
+| width    | number   | 300     | The width of the SVG image representing the message type. Similar to height, this allows for customization of the image size. |
+| type     | string   | info    | Determines the type of message to display, which affects the SVG image used and the text styling. Options include error, success, and info. |
+| slot     |          |         | The Message Component supports the use of a slot for adding additional content or actions within the message. This can be useful for including buttons or links that the user can interact with, such as a "Retry" button for error messages. |
+
+
+## Example
+
+### Error Message
+
+<Message message="Error!" type="error" details="Please check your input and try again.">
+    <div class="flex flex-row items-center justify-center">
+        <Button variant="dark-outline" size="sm">Retry</Button>
+    </div>
+</Message>
+
+```astro
+<Message message="Error!" type="error" details="Please check your input and try again.">
+    <div class="flex flex-row items-center justify-center">
+        <Button variant="dark-outline" size="sm">Retry</Button>
+    </div>
+</Message>
+```
+
+### Info Message
+
+<Message message="Info!" type="info" details="This is an informational message." />
+
+```astro
+<Message message="Info!" type="info" details="This is an informational message." />
+```
+
+This example creates an error message with the text "Error!" and additional details, followed by a "Retry" button for user interaction.

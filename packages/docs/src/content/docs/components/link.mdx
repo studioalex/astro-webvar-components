@@ -1,0 +1,46 @@
+---
+title: Link
+description: Link Component for Text or Paragraph Context.
+lastUpdated: 2024-04-11
+---
+
+import { Link } from "astro-webvar-components";
+
+The Link Component is a lightweight, customizable solution for embedding hyperlinks
+within text or paragraph content in Astro JS Pages. Unlike traditional navigation links,
+this component is designed to enhance the readability and interactivity of text, making
+it an ideal choice for adding contextual links within your content.
+
+## Features
+
+- **Customizable Appearance**: The component supports custom CSS classes through the `class` property,
+  allowing for a wide range of styling options. By default, it applies a shadow effect and changes the
+  text color on hover, enhancing the visual appeal and user interaction.
+- **Flexible Integration**: Built with Astro, this component is designed to seamlessly integrate with your
+  Astro JS Pages. It leverages the power of TypeScript and JSX, making it easy to include in your projects.
+- **Accessibility and Usability**: The component is built with accessibility in mind, ensuring that the
+  links are easily accessible and usable across different devices and browsers.
+
+## Usage
+
+To use the Link Component, simply include it in your Astro JS Pages and provide the `href` attribute with the
+desired URL. You can also add custom CSS classes through the `class` property to further customize the
+appearance of the link.
+
+## Props
+
+Has the same props as the HTML `a` tag.
+
+## Example
+
+<div class="mt-20 mb-8">
+  <Link href="/components/link" class="custom-class">
+    About
+  </Link>
+</div>
+
+```astro
+<Link href="/about" class="custom-class">About</Link>
+```
+
+This component is a powerful tool for enhancing the textual content of your Astro JS Pages, providing a simple yet effective way to add contextual links without the complexity of traditional navigation systems.

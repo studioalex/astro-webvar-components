@@ -1,0 +1,62 @@
+---
+title: Badge
+description: Badge Component is designed to be highly customizable.
+lastUpdated: 2024-04-11
+---
+import { Badge } from 'astro-webvar-components';
+
+The Badge Component is a versatile and customizable component designed for displaying small pieces of information or status indicators within your application. It's built with Astro, leveraging the power of Tailwind CSS for styling, making it lightweight and easy to integrate into your projects.
+
+## Features
+
+- **Variants**: The component supports a range of color variants, including primary, secondary, success, danger, warning, info, light, and dark. This allows for easy customization of the badge's appearance to match your application's design.
+- **Sizes**: The badge can be customized in size, with options ranging from extra small (xs) to extra large (xl), ensuring it fits seamlessly into any design context.
+- **Rounded Corners**: The component allows for customization of the badge's rounded corners, with options from none to fully rounded. This feature ensures that the badge can be styled to fit any design aesthetic.
+
+## Usage
+
+To use the Badge Component, include it in your Astro JS Pages and customize it using the available properties. Here's a basic example:
+
+<div class="flex flex-row justify-start items-center gap-8 mt-20 mb-8">
+    <Badge variant="primary" size="xs" rounded="none">primary</Badge>
+    <Badge variant="secondary" size="sm" rounded="sm">secondary</Badge>
+    <Badge variant="success" size="ms" rounded="md">success</Badge>
+    <Badge variant="danger" size="lg" rounded="lg">danger</Badge>
+    <Badge variant="warning" size="xl" rounded="xl">warning</Badge>
+    <Badge variant="info" size="lg" rounded="full">info</Badge>
+    <Badge variant="dark" size="lg" rounded="full">dark</Badge>
+</div>
+
+```astro
+<Badge variant="primary" size="xs" rounded="none">primary</Badge>
+<Badge variant="secondary" size="sm" rounded="sm">secondary</Badge>
+<Badge variant="success" size="ms" rounded="md">success</Badge>
+<Badge variant="danger" size="lg" rounded="lg">danger</Badge>
+<Badge variant="warning" size="xl" rounded="xl">warning</Badge>
+<Badge variant="info" size="lg" rounded="full">info</Badge>
+<Badge variant="dark" size="lg" rounded="full">dark</Badge>
+```
+
+## Properties
+
+| Property | Type   | Default     | Description                                                            |
+|----------|--------|-------------|------------------------------------------------------------------------|
+| variant  | string | `secondary` | Determines the color variant of the badge. Options include             |
+|          |        |             | `primary`, `secondary`, `success`, `danger`, `warning`, `info`, `dark` |
+| size     | string | `md`        | Sets the size of the badge. Options include                            |
+|          |        |             | `xs`, `sm`, `md`, `lg`, `xl`                                           |
+| rounded  | string | `md`        | Customizes the rounded corners of the badge. Options include           |
+|          |        |             | `none`, `sm`, `md`, `lg`, `xl`, `full`                                 |
+
+## Example
+
+<div class="mt-20 mb-8">
+    <Badge variant="success" size="lg" rounded="full">Approved</Badge>
+</div>
+
+```astro
+<Badge variant="success" size="lg" rounded="full">Approved</Badge>
+```
+
+This example creates a large, fully rounded badge with a green background and white text, indicating an "Approved" status.
+

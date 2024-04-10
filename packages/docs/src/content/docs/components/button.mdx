@@ -1,0 +1,269 @@
+---
+title: Button
+description: Use Webvar custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.
+lastUpdated: 2024-04-11
+---
+
+import { Button } from "astro-webvar-components";
+
+The Custom Button Component is a lightweight, customizable button solution built with HTML, Tailwind CSS, and JavaScript, without relying on any frameworks. It's designed to minimize footprint and integration issues, making it an ideal choice for projects where performance and flexibility are paramount.
+
+## Features
+
+-  **Variants**: The button supports a wide range of color variants, including **primary**, **secondary**, **success**, **danger**, **warning**, **info**, **light**, and **dark**. Each variant comes in two styles: *solid* and **outline**, providing a versatile look for different use cases.
+-  **Rounded Corners**: The component allows for customization of the button's rounded corners, with options ranging from none to fully rounded. This feature ensures that the button can fit seamlessly into any design aesthetic.
+-  **Sizes**: The button is available in various sizes, from extra small (xs) to extra large (xl), allowing developers to choose the perfect size for their application's needs.
+-  **Custom Classes**: Developers can extend the button's functionality and appearance by adding custom CSS classes through the `class` property.
+-  **Accessibility and Interactivity**: The button is designed with accessibility in mind, including focus and disabled states. It also features hover and focus effects for enhanced user interaction.
+
+
+## Usage
+
+To use the Custom Button Component, simply include it in your HTML and customize it using the available properties. The component is built with Astro, a front-end framework that allows for the use of TypeScript and JSX, making it easy to integrate into modern web projects.
+
+<div class="flex flex-row flex-wrap items-center content-start gap-8">
+<Button variant="primary" size="xs">primary</Button>
+<Button variant="secondary" size="sm">secondary</Button>
+<Button variant="success" size="md">success</Button>
+<Button variant="danger" size="lg">danger</Button>
+<Button variant="warning" size="xl">warning</Button>
+<Button variant="info" size="lg">info</Button>
+<Button variant="light" size="md">light</Button>
+<Button variant="dark" size="sm">dark</Button>
+<Button variant="primary-outline" size="xs" rounded="none">primary outline</Button>
+<Button variant="secondary-outline" size="sm" rounded="none">secondary outline</Button>
+<Button variant="success-outline" size="md" rounded="sm">success outline</Button>
+<Button variant="danger-outline" size="lg" rounded="sm">danger outline</Button>
+<Button variant="warning-outline" size="xl" rounded="md">warning outline</Button>
+<Button variant="info-outline" size="lg" rounded="md">info outline</Button>
+<Button variant="light-outline" size="md" rounded="xl">light outline</Button>
+<Button variant="dark-outline" size="sm" rounded="full">dark outline</Button>
+</div>
+
+ ```astro
+<Button variant="primary" size="xs">primary</Button>
+<Button variant="secondary" size="sm">secondary</Button>
+<Button variant="success" size="md">success</Button>
+<Button variant="danger" size="lg">danger</Button>
+<Button variant="warning" size="xl">warning</Button>
+<Button variant="info" size="lg">info</Button>
+<Button variant="light" size="md">light</Button>
+<Button variant="dark" size="sm">dark</Button>
+<Button variant="primary-outline" size="xs" rounded="none">primary outline</Button>
+<Button variant="secondary-outline" size="sm" rounded="none">secondary outline</Button>
+<Button variant="success-outline" size="md" rounded="sm">success outline</Button>
+<Button variant="danger-outline" size="lg" rounded="sm">danger outline</Button>
+<Button variant="warning-outline" size="xl" rounded="md">warning outline</Button>
+<Button variant="info-outline" size="lg" rounded="md">info outline</Button>
+<Button variant="light-outline" size="md" rounded="xl">light outline</Button>
+<Button variant="dark-outline" size="sm" rounded="full">dark outline</Button>
+ ```
+
+This component is a testament to the power of simplicity and customization, providing a robust solution for adding buttons to web projects without the overhead of larger frameworks.
+
+## Props
+
+| Property          | Type     | Default     | Description                                                                                      |
+|-------------------|----------|-------------|--------------------------------------------------------------------------------------------------|
+| Variants          | string   | 'secondary' | Determines the color variant of the link button. Options include:                                |
+|                   |          |             | `primary` / `primary-outline`                                                                    |
+|                   |          |             | `secondary` / `secondary-outline`                                                                |
+|                   |          |             | `success` / `success-outline`                                                                    |
+|                   |          |             | `danger` / `danger-outline`                                                                      |
+|                   |          |             | `warning` / `warning-outline`                                                                    |
+|                   |          |             | `info` / `info-outline`                                                                          |
+|                   |          |             | `light` / `light-outline`                                                                        |
+|                   |          |             | `dark` / `dark-outline`                                                                          |
+| Rounded Corners   | string   | 'full'      | Customizes the rounded corners of the Link Button. Options include:                              |
+|                   |          |             | `none`, `full`, `sm`, `md`, `xl`                                                                 |
+| Sizes             | string   | 'md'        | Sets the size of the Link Button. Options include:                                               |
+|                   |          |             | `xs`, `sm`, `md`, `lg`, `xl`                                                                     |
+| Additional HTML Button Properties | - | - | All properties of a standard [HTML button](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) element are also accepted by this component. This includes attributes such as `disabled`, `form`, `formaction`, `formenctype`, `formmethod`, `formnovalidate`, `formtarget`, `name`, `type`, `value`, and event handlers like `onclick`, `onfocus`, etc. |
+
+## Variants
+
+<div class="no-margin flex flex-col flex-wrap content-start gap-8">
+    <h3 class="text-xl font-medium mt-8">Primary</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="primary" size="xs">button</Button>
+        <Button variant="primary" size="sm">button</Button>
+        <Button variant="primary" size="md">button</Button>
+        <Button variant="primary" size="lg">button</Button>
+        <Button variant="primary" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="primary" rounded="none">button</Button>
+        <Button variant="primary" rounded="sm">button</Button>
+        <Button variant="primary" rounded="md">button</Button>
+        <Button variant="primary" rounded="xl">button</Button>
+        <Button variant="primary" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="primary-outline" rounded="none">button</Button>
+        <Button variant="primary-outline" rounded="sm">button</Button>
+        <Button variant="primary-outline" rounded="md">button</Button>
+        <Button variant="primary-outline" rounded="xl">button</Button>
+        <Button variant="primary-outline" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="primary-outline" rounded="none" disabled>button</Button>
+        <Button variant="primary-outline" rounded="sm" disabled>button</Button>
+        <Button variant="primary" rounded="md" disabled>button</Button>
+        <Button variant="primary" rounded="xl" disabled>button</Button>
+        <Button variant="primary" rounded="full" disabled>button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Secondary</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="secondary" size="xs">button</Button>
+        <Button variant="secondary" size="sm">button</Button>
+        <Button variant="secondary" size="md">button</Button>
+        <Button variant="secondary" size="lg">button</Button>
+        <Button variant="secondary" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="secondary" size="md" rounded="none">button</Button>
+        <Button variant="secondary" size="md" rounded="sm">button</Button>
+        <Button variant="secondary" size="md" rounded="md">button</Button>
+        <Button variant="secondary" size="md" rounded="xl">button</Button>
+        <Button variant="secondary" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="secondary-outline" size="md" rounded="none">button</Button>
+        <Button variant="secondary-outline" size="md" rounded="sm">button</Button>
+        <Button variant="secondary-outline" size="md" rounded="md">button</Button>
+        <Button variant="secondary-outline" size="md" rounded="xl">button</Button>
+        <Button variant="secondary-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Success</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="success" size="xs">button</Button>
+        <Button variant="success" size="sm">button</Button>
+        <Button variant="success" size="md">button</Button>
+        <Button variant="success" size="lg">button</Button>
+        <Button variant="success" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="success" size="md" rounded="none">button</Button>
+        <Button variant="success" size="md" rounded="sm">button</Button>
+        <Button variant="success" size="md" rounded="md">button</Button>
+        <Button variant="success" size="md" rounded="xl">button</Button>
+        <Button variant="success" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="success-outline" size="md" rounded="none">button</Button>
+        <Button variant="success-outline" size="md" rounded="sm">button</Button>
+        <Button variant="success-outline" size="md" rounded="md">button</Button>
+        <Button variant="success-outline" size="md" rounded="xl">button</Button>
+        <Button variant="success-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Danger</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="danger" size="xs">button</Button>
+        <Button variant="danger" size="sm">button</Button>
+        <Button variant="danger" size="md">button</Button>
+        <Button variant="danger" size="lg">button</Button>
+        <Button variant="danger" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="danger" size="md" rounded="none">button</Button>
+        <Button variant="danger" size="md" rounded="sm">button</Button>
+        <Button variant="danger" size="md" rounded="md">button</Button>
+        <Button variant="danger" size="md" rounded="xl">button</Button>
+        <Button variant="danger" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="danger-outline" size="md" rounded="none">button</Button>
+        <Button variant="danger-outline" size="md" rounded="sm">button</Button>
+        <Button variant="danger-outline" size="md" rounded="md">button</Button>
+        <Button variant="danger-outline" size="md" rounded="xl">button</Button>
+        <Button variant="danger-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Warning</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="warning" size="xs">button</Button>
+        <Button variant="warning" size="sm">button</Button>
+        <Button variant="warning" size="md">button</Button>
+        <Button variant="warning" size="lg">button</Button>
+        <Button variant="warning" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="warning" size="md" rounded="none">button</Button>
+        <Button variant="warning" size="md" rounded="sm">button</Button>
+        <Button variant="warning" size="md" rounded="md">button</Button>
+        <Button variant="warning" size="md" rounded="xl">button</Button>
+        <Button variant="warning" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="warning-outline" size="md" rounded="none">button</Button>
+        <Button variant="warning-outline" size="md" rounded="sm">button</Button>
+        <Button variant="warning-outline" size="md" rounded="md">button</Button>
+        <Button variant="warning-outline" size="md" rounded="xl">button</Button>
+        <Button variant="warning-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Info</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="info" size="xs">button</Button>
+        <Button variant="info" size="sm">button</Button>
+        <Button variant="info" size="md">button</Button>
+        <Button variant="info" size="lg">button</Button>
+        <Button variant="info" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="info" size="md" rounded="none">button</Button>
+        <Button variant="info" size="md" rounded="sm">button</Button>
+        <Button variant="info" size="md" rounded="md">button</Button>
+        <Button variant="info" size="md" rounded="xl">button</Button>
+        <Button variant="info" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="info-outline" size="md" rounded="none">button</Button>
+        <Button variant="info-outline" size="md" rounded="sm">button</Button>
+        <Button variant="info-outline" size="md" rounded="md">button</Button>
+        <Button variant="info-outline" size="md" rounded="xl">button</Button>
+        <Button variant="info-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Light</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="light" size="xs">button</Button>
+        <Button variant="light" size="sm">button</Button>
+        <Button variant="light" size="md">button</Button>
+        <Button variant="light" size="lg">button</Button>
+        <Button variant="light" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="light" size="md" rounded="none">button</Button>
+        <Button variant="light" size="md" rounded="sm">button</Button>
+        <Button variant="light" size="md" rounded="md">button</Button>
+        <Button variant="light" size="md" rounded="xl">button</Button>
+        <Button variant="light" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="light-outline" size="md" rounded="none">button</Button>
+        <Button variant="light-outline" size="md" rounded="sm">button</Button>
+        <Button variant="light-outline" size="md" rounded="md">button</Button>
+        <Button variant="light-outline" size="md" rounded="xl">button</Button>
+        <Button variant="light-outline" size="md" rounded="full">button</Button>
+    </div>
+    <h3 class="text-xl font-medium mt-8">Dark</h3>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="dark" size="xs">button</Button>
+        <Button variant="dark" size="sm">button</Button>
+        <Button variant="dark" size="md">button</Button>
+        <Button variant="dark" size="lg">button</Button>
+        <Button variant="dark" size="xl">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="dark" size="md" rounded="none">button</Button>
+        <Button variant="dark" size="md" rounded="sm">button</Button>
+        <Button variant="dark" size="md" rounded="md">button</Button>
+        <Button variant="dark" size="md" rounded="xl">button</Button>
+        <Button variant="dark" size="md" rounded="full">button</Button>
+    </div>
+    <div class="flex flex-row flex-wrap items-center content-start gap-8">
+        <Button variant="dark-outline" size="md" rounded="none">button</Button>
+        <Button variant="dark-outline" size="md" rounded="sm">button</Button>
+        <Button variant="dark-outline" size="md" rounded="md">button</Button>
+        <Button variant="dark-outline" size="md" rounded="xl">button</Button>
+        <Button variant="dark-outline" size="md" rounded="full">button</Button>
+    </div>
+</div>

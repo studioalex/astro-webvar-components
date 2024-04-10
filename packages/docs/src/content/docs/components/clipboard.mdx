@@ -1,0 +1,49 @@
+---
+title: Clipboard
+description: A component is a customizable and user-friendly solution for copying text to the clipboard within your web applications.
+lastUpdated: 2024-04-11
+---
+import  { Clipboard, Button } from 'astro-webvar-components';
+
+The **`Clipboard`** component is a customizable and user-friendly solution for copying text to
+the clipboard within your web applications. Designed as a custom HTML element (`<clipboard></clipboard>`),
+this component simplifies the process of creating a button that copies specified text to the 
+clipboard when clicked. It provides visual feedback to the user by temporarily changing the button's 
+text to "Copied!" before reverting back to its original content.
+
+## Features
+
+- **Easy Integration**: The component is designed to be easily integrated into your web application as a custom HTML element.
+- **Visual Feedback**: It provides visual feedback to the user by changing the button's text to "Copied!" for a brief period.
+- **Accessibility**: The component is built with accessibility in mind, ensuring that it can be easily used by a wide range of users.
+
+## Usage
+
+To use the `Clipboard` component, include it in your HTML and place a `<button>` element with a `data-copy` 
+attribute inside the component. Here's a basic example:
+
+```astro
+<Clipboard>
+	<button data-copy="Text to copy">Copy to Clipboard</button>
+</Clipboard>
+```
+
+This example creates a button that, when clicked, copies the text "Text to copy" to the clipboard and 
+displays "Copied!" for 1 second before reverting to its original text.
+
+## Example
+
+<div class="mt-20 mb-8">
+    <Clipboard>
+        <Button data-copy="https://example.com">Copy Link</Button>
+    </Clipboard>
+</div>
+
+```astro
+<Clipboard>
+	<Button data-copy="https://example.com">Copy Link</Button>
+</Clipboard>
+```
+
+This example creates a button that, when clicked, copies the URL "https://example.com" 
+to the clipboard and displays "Copied!" for 1 second before reverting to its original text.
