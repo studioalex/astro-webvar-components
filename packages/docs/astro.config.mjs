@@ -16,7 +16,7 @@ export default defineConfig({
         replacesTitle: true,
       },
       social: {
-        github: "https://github.com/studioalex/webvar",
+        github: "https://github.com/studioalex/astro-webvar-components",
       },
       sidebar: [
         {
